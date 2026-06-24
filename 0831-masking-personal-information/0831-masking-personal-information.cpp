@@ -2,10 +2,8 @@ class Solution {
 public:
     string maskPII(string s) {
         int n = s.size();
-        string str;
-        string ptr;
-        bool email = false;
-        bool number = false;
+        string str, ptr;
+        bool email = false,number = false;
         if((s[0] >= 'A' && s[0]<='Z') || (s[0] >= 'a' && s[0]<='z')){
             email = true;
             for(int i = 0; i < n; i++){
@@ -48,7 +46,6 @@ public:
             else num += "+***-***-***-";
             ptr = num + ptr;
         }
-        if(email) return str;
-        return ptr;
+        return email?str:ptr;
     }
 };
