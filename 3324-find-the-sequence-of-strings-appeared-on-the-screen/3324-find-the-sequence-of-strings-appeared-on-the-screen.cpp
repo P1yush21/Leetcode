@@ -8,8 +8,8 @@ public:
             ans.push_back('a');   
             str.push_back(ans);
             char ch = 'a';
-            if(ch != target[i]){
-                while(ch != target[i]){
+            if(ch < target[i]){
+                while(ch < target[i]){
                     ch++;
                     ans[i]++;
                     str.push_back(ans);
