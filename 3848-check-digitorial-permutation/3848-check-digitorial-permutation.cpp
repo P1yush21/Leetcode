@@ -2,7 +2,6 @@ class Solution {
 public:
     bool isDigitorialPermutation(int n) {
         int duplicate = n;
-        // vector<int>v = {1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880};
         int sum = 0;
         while(duplicate>0){
             int digit = duplicate%10;
@@ -19,7 +18,7 @@ public:
         }
         string str = to_string(sum);
         string ptr = to_string(n);
-        cout<<sum<<" "<<n; 
+        // cout<<sum<<" "<<n; 
         vector<int>v(10,0);
         for(int i = 0; i < str.size(); i++){
             v[str[i]-'0']++;
