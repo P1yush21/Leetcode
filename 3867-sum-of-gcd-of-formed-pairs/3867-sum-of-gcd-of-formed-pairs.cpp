@@ -19,7 +19,6 @@ public:
             }
             prefix[i] = gcd(mx,nums[i]);
         }
-        cout<<12%18;
         sort(prefix.begin(),prefix.end());
         long long sum = 0;
         int i = 0;
