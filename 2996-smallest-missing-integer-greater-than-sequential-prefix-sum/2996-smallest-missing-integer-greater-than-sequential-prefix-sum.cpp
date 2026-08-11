@@ -2,20 +2,24 @@ class Solution {
 public:
     int missingInteger(vector<int>& nums) {
         int n = nums.size();
-        int sum = nums[0];
+        int sum1 = nums[0];
+        int sum2 = 0;
         for(int i = 1; i < n; i++){
             if(nums[i]-1==nums[i-1]){
-                sum+=nums[i];
+                sum1 += nums[i];
             }
             else break;
         }
-        vector<int>v(1276,0);
+        for(int i = 0; i < n; i++){
+            sum2 += nums[i];
+        }
+        vector<int>v(sum2+1,0);
         for(int i = 0; i < n; i++){
             v[nums[i]]++;
         }
-        for(int i = sum; i <= 1276; i++){
+        for(int i = sum1; i <= sum2; i++){
             if(v[i]==0) return i;
         }
-        return 0;
+        return sum2+1;
     }
 };
