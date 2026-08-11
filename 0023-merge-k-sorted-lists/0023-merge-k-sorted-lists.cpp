@@ -36,10 +36,10 @@ public:
     ListNode* mergeKLists(vector<ListNode*>& list) {
         if(list.size()==0) return NULL;
         while(list.size()>1){
-            ListNode* a = list[list.size()-1];
-            list.pop_back();
-            ListNode* b = list[list.size()-1];
-            list.pop_back();
+            ListNode* a = list[0];
+            list.erase(list.begin());
+            ListNode* b = list[0];
+            list.erase(list.begin());
             ListNode* c = merge(a,b);
             list.push_back(c);
         }
