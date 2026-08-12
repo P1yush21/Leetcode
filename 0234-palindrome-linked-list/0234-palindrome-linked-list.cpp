@@ -31,20 +31,37 @@ public:
         // }
         // return true;
 
-        ListNode* c = new ListNode(10);
-        ListNode* temp = head;
-        ListNode* tempC = c;
-        while(temp){
-            ListNode* node = new ListNode(temp->val);
-            tempC->next = node;
-            temp = temp->next;
-            tempC = tempC->next;
-        }
-        c=c->next;
-        c=reverseList(c);
+        // ListNode* c = new ListNode(10);
+        // ListNode* temp = head;
+        // ListNode* tempC = c;
+        // while(temp){
+        //     ListNode* node = new ListNode(temp->val);
+        //     tempC->next = node;
+        //     temp = temp->next;
+        //     tempC = tempC->next;
+        // }
+        // c=c->next;
+        // c=reverseList(c);
+        // ListNode* a = head;
+        // ListNode* b = c;
+        // while(a){
+        //     if(a->val != b->val) return false;
+        //     a = a->next;
+        //     b = b->next;
+        // }
+        // return true;
+
+        ListNode* slow = head; 
+        ListNode* fast = head;
+        while(fast->next!=NULL && fast->next->next!=NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+        } 
+        // slow is at the left middle/ middle
+        ListNode* newHead = reverseList(slow->next);
         ListNode* a = head;
-        ListNode* b = c;
-        while(a){
+        ListNode* b = newHead;
+        while(b){
             if(a->val != b->val) return false;
             a = a->next;
             b = b->next;
