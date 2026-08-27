@@ -7,7 +7,7 @@ public:
         vector<int>v;
         vector<int>ans(2);
         int i = 0, res = 0, mn = INT_MAX;
-        while(temp){
+        while(NEXT){
             if(prev!=NULL && NEXT!=NULL){
                 if((temp->val > prev->val && temp->val > NEXT->val) || (temp->val < prev->val && temp->val < NEXT->val)) v.push_back(i);
             }
