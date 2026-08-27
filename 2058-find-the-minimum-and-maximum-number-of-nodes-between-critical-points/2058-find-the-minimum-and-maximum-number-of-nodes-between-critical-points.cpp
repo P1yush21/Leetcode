@@ -26,7 +26,7 @@ public:
         if (!v.empty()) {
             ans[1] = v[v.size() - 1] - v[0];
         }
-        if(ans[0]==INT_MIN || ans[1]==0) return {-1,-1};
+        if(ans[0]==INT_MAX || ans[1]==0) return {-1,-1};
         return ans;
     }
 };
