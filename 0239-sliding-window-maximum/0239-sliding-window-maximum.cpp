@@ -26,11 +26,13 @@ public:
             st.push(i);
         }
         vector<int>ans;
+        int j = 0;
         for(int i = 0; i <= n-k; i++){
-            int j = i;
-            int mx = nums[i];
+            if(j<i) j=i;
+            int mx = nums[j];
             while(j < i+k){
                 mx = nums[j];
+                if(v[j]>=i+k) break;
                 j=v[j];
             }
             ans.push_back(mx);
