@@ -1,32 +1,36 @@
 class Solution {
 public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
-        ListNode* temp = head;
-        ListNode* NEXT = temp->next;
-        ListNode* prev = NULL;
-        vector<int>v;
-        vector<int>ans(2);
-        int i = 0, res = 0, mn = INT_MAX;
-        while(NEXT){
-            if(prev!=NULL && NEXT!=NULL){
-                if((temp->val > prev->val && temp->val > NEXT->val) || (temp->val < prev->val && temp->val < NEXT->val)) v.push_back(i);
-            }
-            prev = temp;
-            temp = temp->next;
-            if (temp)
-                NEXT = temp->next;
+        vector<int> v;
+        if(head==NULL || head->next==NULL || head->next->next==NULL) return {-1,-1};
+        ListNode* prev = head;
+        ListNode* temp = head->next;
+        ListNode* front = temp->next;
+        int i = 2;
+        while(front){
+            if((temp->val < prev->val && temp->val < front->val )||(temp->val > prev->val && temp->val > front->val )) v.push_back(i);
+            front=front->next;
+            temp=temp->next;
+            prev=prev->next;
             i++;
         }
-        if(v.empty()) return{-1,-1};
-        for(int i = 1; i < v.size(); i++){
-            res = v[i]-v[i-1];
-            mn = min(res,mn);
+        int n = v.size();
+        if(n<2) return {-1,-1};
+        int mn = INT_MAX , mx = INT_MIN;
+        for(int i = 1; i < n ; i++){
+            mn = min(mn, v[i]-v[i-1]);
         }
-        ans[0] = mn;
-        if (!v.empty()) {
-            ans[1] = v[v.size() - 1] - v[0];
-        }
-        if(ans[0]==INT_MAX || ans[1]==0) return {-1,-1};
-        return ans;
+        mx = v[n-1]-v[0];
+        return {mn,mx};
     }
 };
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
