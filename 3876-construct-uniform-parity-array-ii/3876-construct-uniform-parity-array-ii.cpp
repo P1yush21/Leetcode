@@ -15,7 +15,6 @@ public:
                 minOdd = min(minOdd, nums[i]);
             }
         }
-        cout<<minEven<<" "<<minOdd<<endl;
         for(int i = 0; i < n; i++){
             if(nums[i]%2==0 && minEven>minOdd) {
                 v[i] = minEven-minOdd;
@@ -23,9 +22,6 @@ public:
             else {
                 v[i] = nums[i];
             }
-        }
-        for(int i = 0; i < n; i++){
-            cout<<v[i]<<" ";
         }
         odd = 0, even = 0;
         for(int i = 0; i < n; i++){
