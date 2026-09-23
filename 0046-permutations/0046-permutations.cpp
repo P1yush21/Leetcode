@@ -7,14 +7,12 @@ public:
         }
         for(int i = 0; i < nums.size(); i++){
             bool found = false;
-
             for(int j = 0; j < v.size(); j++) {
                 if(v[j] == nums[i]) {
                     found = true;
                     break;
                 }
             }
-
             if(found) continue;
             v.push_back(nums[i]);
             solve(ans, v, nums, 0);
