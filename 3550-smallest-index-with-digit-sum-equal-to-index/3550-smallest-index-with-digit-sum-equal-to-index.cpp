@@ -11,13 +11,10 @@ public:
                     internalSum += digit;
                     x/=10; 
                 }
-                if(internalSum==i) {
-                    return i;
-                }
+                if(internalSum==i) return i;
             }
             else if (nums[i]==i) return i;
         }
         return -1;
-        
     }
 };
