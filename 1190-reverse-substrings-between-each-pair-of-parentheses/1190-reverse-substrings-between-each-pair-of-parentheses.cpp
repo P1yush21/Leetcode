@@ -11,8 +11,8 @@ public:
                     st.pop();
                 }
                 st.pop();
-                for(int i = 0; i < str.size(); i++){
-                    st.push(str[i]);
+                for(int j = 0; j < str.size(); j++){
+                    st.push(str[j]);
                 }
             }
         }
