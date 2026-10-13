@@ -24,9 +24,9 @@ public:
         for(int i = 0; i < n; i++){
             long long num = res[i]*res[i];
             if(i%2==0) evenSum += num;
-            else oddSum += num;
+            else oddSum -= num;
         }
-        return evenSum-oddSum;
+        return evenSum+oddSum;
         
     }
 };
