@@ -20,10 +20,6 @@ public:
             j++;
         }
 
-        for(int i = 0; i < n; i++){
-            cout<<res[i]<<" ";
-        }
-
         long long oddSum = 0, evenSum = 0;
         for(int i = 0; i < n; i++){
             long long num = res[i]*res[i];
