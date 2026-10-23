@@ -18,12 +18,16 @@ public:
             nums[i] -= rev(nums[i]);
         }
         for(int i = 0; i < n; i++){
-            mp[nums[i]]++;
+            if(mp.find(nums[i])!=mp.end()){
+                count += mp[nums[i]];
+                mp[nums[i]]++;
+            }
+            else mp[nums[i]]++;
         }
-        for(auto x : mp){
-            long long f = x.second;
-            count = (count+f*(f-1)/2)%1000000007;
-        }
-        return count;
+        // for(auto x : mp){
+        //     long long f = x.second;
+        //     count = (count+f*(f-1)/2)%1000000007;
+        // }
+        return count%1000000007;
     }
 };
