@@ -19,9 +19,8 @@ public:
             h2[x.second]++;
         }
         for(auto x : h1){
-            int key = x.first;
-            if(h2.find(key)==h2.end()) return false;
-            if(h2[key]!=h1[key]) return false;        
+            if(h2.find(x.first)==h2.end()) return false;
+            if(h2[x.first]!=h1[x.first]) return false;        
         }
         return true;
     }
