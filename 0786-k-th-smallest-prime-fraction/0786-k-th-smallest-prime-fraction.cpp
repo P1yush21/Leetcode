@@ -1,11 +1,8 @@
 class Solution {
 public:
+    typedef pair<double, pair<int, int>> P;
     vector<int> kthSmallestPrimeFraction(vector<int>& arr, int k) {
-        priority_queue<
-            pair<float, pair<int, int>>,
-            vector<pair<float, pair<int, int>>>,
-            greater<pair<float, pair<int, int>>>
-        > pq;
+        priority_queue<P, vector<P>, greater<P>> pq;
         for(int i = 0; i < arr.size(); i++){
             for(int j = i+1; j < arr.size(); j++){
                 float ratio = (float)arr[i] / arr[j];
