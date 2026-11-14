@@ -17,7 +17,6 @@ public:
             pq.pop();
             count++;
         }
-        auto x = pq.top();
-        return {x.second.first, x.second.second};
+        return {pq.top().second.first, pq.top().second.second};
     }
 };
