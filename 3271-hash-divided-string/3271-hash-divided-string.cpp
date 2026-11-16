@@ -8,7 +8,6 @@ public:
                 num += s[j]-'a';
             }
             num = num%26;
-            cout<<num;
             str+=num+'a';
         }
         return str;
